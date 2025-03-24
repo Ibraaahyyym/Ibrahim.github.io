@@ -1,9 +1,242 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+          Quran quiz app
+      </title>
+<style>
+  *{
+    margin:10px;
+   }
+  
+  body{
+    background-color:;
+   
+  
+  }
+  
+  h1{
+    /**text-align:center;**/
+    text-transform:uppercase;
+  }
+  
+  #submit-btn{
+    /**margin:0 auto;**/
+    padding:20px;
+    
+  }
+ 
+  #result{
+    position: static;
+    text-align:center;
+    color:white;
+    padding-top: 20%;
+    background-color:gray;
+    display:none;
+    height:50px;
+  }
 
+  input[type*="radio"]{
+   /**appearance:none;**/
+   /**-moz-appeatance:none;**/
+   display:none;
+   width:20px;
+   height:20px;
+   background-color:#fff;
+   border:25px solid coral;
+   color:red;
+   /**list-style-type: square;**/
+   cursor:pointer;
+  }
+
+  label{
+   display: block;
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   cursor: pointer;
+  }
+
+  h1,button{
+  background-color:brown;
+  color:white;
+  font-weight:bold;
+  text-align:center;
+  /**justify-content:center;**/
+  /**align-items:center;**/
+  margin:0px auto;
+  }
+
+  h1{
+  /**width:200px;**/
+  /**margin-left:50px;**/
+  }
+  
+  .btn-container{
+   display:flex;
+   }
+
+   p{
+    margin: 10px;
+    
+    min-width:;
+   }
+
+   span{
+    font-size:20px;
+   }
+   
+   .question span{
+    text-align:center;
+   }
+
+   .question{
+    /*position:static;*/
+   }
+ 
+
+   input[type*="radio"]:checked + label{
+    background-color: #f0f0f0;
+   }
+
+   label:hover{
+    background-color: #e0e0e0;
+   }
+  
+   img{
+   width:300px;
+   /*display:inline;*/
+   /*height:1000px;*/
+   
+   margin:0 auto;
+   }
+   
+   .words-container{
+    display:flex;
+
+   }
+
+   .words{
+    height: 30px;
+    width:30px;
+    
+    margin:2px auto;
+   }
+  
+</style>
+</head>
+ 
 <body>
-  <h1>Ibrahim Garba</h1>
-  <p>Welcome to my website!</p>
-  <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" />
-</body>
+    <div class="words-container">
+    <img src="./quran.jpeg" alt="quran"/>
+    </div>
+    
+    <div class="question">
+      <h1>
+        QUIZ
+      </h1><br>
+      <span>1.What is the root word of:</span><br>
+      <div class="words-container">
+        <img class="words" src="./wordimage-1.png" alt="word1"/>
+      </div>
+    </div>
 
-</html>
+    <h2 id="result"></h2>
+
+    <label for="sa">
+      <input type="radio" name="q1" value=mim wa" id="sa">( sīn mīm wāw ) س م و
+    </label><br>
+
+    <label for="am">
+     <input type="radio" name="q1" value="amsterdam" id="am">( bā sā mīm )  ب  س  م
+    </label><br>
+
+    <label for="af">
+      <input type="radio" name="q1" value="africa" id="af"> ( sīn mīm mīm )  س م م
+    </label><br>
+    <br>
+    
+
+    <!--Question two starts below-->
+   
+    <span>2. What is the root word of:</span><br>
+    <div class="words-container">
+      <img class="words" src="./wordimage-1.png" alt="word1"/>
+    </div>
+    
+
+    <h2 id="result"></h2>
+    <label for="sa">
+      <input type="radio" name="q1" value=mim wa" id="sa">( sīn mīm wāw ) س م و
+    </label><br>
+
+    <label for="am">
+      <input type="radio" name="q1" value="amsterdam" id="am">( bā sā mīm )  ب  س  م
+    </label><br>
+
+    <label for="af">
+      <input type="radio" name="q1" value="africa" id="af"> ( sīn mīm mīm )  س م م
+    </label><br>
+   
+    <br>
+    
+    <!-- Question ywo ends above -->
+
+
+
+    <!--<p>-->
+    <!--2. ________ is the most populated continent in the world.
+    <!--</p>-->
+    <!--<p>-->
+    <!--<input type="radio" name="Food" value="europe">Europe<br>-->
+    <!--<input type="radio" name="Food" value="asia">Asia<br>-->
+    <!--<input type="radio" name="Food" value="africa">Africa-->
+    <!--</p>-->
+   
+    
+    <div class="btn-container">
+    <button type="button" id="submit-btn">
+        Submit
+    </button>
+    </div>
+    <br>
+     
+    <!--<h2 id="result"></h2>-->
+    <script>
+        document.getElementById("result").innerHTML = ""
+        let btn = document.getElementById("submit-btn");
+        let totalScore = 0;
+        
+        function displayResult(){
+          document.getElementById("result").innerHTML = ""
+document.getElementById("result").style.display="block";
+document.getElementById("result").style.position="absolute";
+document.getElementById("result").style.width="83%";
+document.getElementById("result").style.height="100px";
+document.getElementById("result").style.borderRadius="15px";
+          let ele = document.getElementsByTagName("input")
+          let answers = ["amsterdam","asia"];
+          for(let i=0; i<ele.length; i++){
+            //let answers = ["Amsterdam"];
+            if(ele[i].checked){
+              /**alert("You selected " + ele[i].value)**/
+              if(ele[i].value === answers[0]){
+                totalScore += 1
+                break
+              }
+            }else /**if(!ele[i].checked)**/{
+              //totalScore = 0
+              /**alert(ele[i].value)**/
+               alert("yaaaay")
+               //break;
+            }
+          }
+         document.getElementById("result").innerHTML = "Your Score is:<br>"+ totalScore
+       }
+
+     btn.addEventListener('click',displayResult)
+            
+    </script>
+</body>
+  </html>
+  
