@@ -1,73 +1,159 @@
 <!DOCTYPE html>
-<html>
 <head>
-	<title>Daily Fortune</title>
-	<meta charset="UTF-8">
-	<!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">-->
- <style>
-body{
-    background-color: #141c3a;
-    font-family: 'Nunito', sans-serif;
-    width: 70%;
-    margin: auto;
-}
+ <title> HTML Cheat Sheet</title>
+ <link href="styles.css" rel="stylesheet">
+<style>
 
-h1{
-    color: white;
-    text-align: center;
-    margin-top: 64px;
-}
 
-#fortune{
-    color: #EFBB24;
-    font-size: 20px;
-    text-align: center;
-}
+body{ 
+ background-color:orange;
+ }
 
-#buttonContainer{
-    width:fit-content;
-    margin: auto;
-}
+ h3{
+  text-align:center;
+   padding-top:15px;
+    color:;
+    }
 
-#fortuneButton{
-    padding: 10px;
-    font-size: 16px;
-    background: white;
-    border: 5px solid #D0104C;
-    border-radius: 5px;
-    color: #141c3a;
-    cursor: pointer;
-}
+    h4{
+     text-align:center;
+      padding-top:15px;
+       color:purple;
+       }
 
- </style>
-</head>
-<body>
-	<h1>Click to see your daily fortune!</h1>
-	<p id="fortune"></p>
-	<div id="buttonContainer">
-         <button id="fortuneButton">Let me see!</button>
-       </div>
-	<script>
- let fortunes = ["A beautiful, smart, and loving person will be coming into your life.","A fresh start will put you on your way.","A golden egg of opportunity falls into your lap this month.","A smile is your personal welcome mat.","All your hard work will soon pay off."]
+       div{
+        background-color:lightblue;
+         margin:5% auto;
+          height:600px;
+          }
+           
+            table{
+              padding: 7px 7px;
+                /**/
+                  /*border:1px solid ;*/
+                    margin:20px auto;
+                     }
 
-let button = document.getElementById('fortuneButton');
-let fortune = document.getElementById('fortune');
+                      tr{
+                        border:1px solid ;
+                         }
 
-function fortuneSelector(){
-  let randomFortune = Math.floor(Math.random() * fortunes.length);
-  return fortunes[randomFortune];
-}
+                          td{
+                            /*colspan:2;*/
+                              border-bottom: 1px solid ;
+                                /*border-top: 1px solid gray;*/
+                                  text-align:;
+                                   }
+                                     
+                                      th{
+                                        border-bottom: 1px solid ;
+                                          /*border-top: 1px solid gray;*/
+                                            background-color:pink;
+                                              text-align: center;
+                                               }
 
-function showFortune(){
-  fortune.innerHTML = fortuneSelector();
-  //button.innerHTML = "Come back tomorrow!";
-  button.style.cursor = "default";
+                                                .tag, .attribute{
+                                 font-family:monospace;                  background-color: snow;
+                                                    }
 
-  //add your code here
-  //button.removeEventListener('click',showFortune)
-}
+                                                      td {
+                                                        border: 1px solid pink;
+                                                          }
 
-button.addEventListener('click', showFortune);
-        </script>
-</body>
+
+                                                          
+
+</style>
+ </head>
+
+ <body>
+  <div>
+    <h3>HTML Table Reference</h3>
+      <h4>Table Tags</h4>
+  <table>
+   <thead>
+     <tr>
+       <th scope="col">Tag</th>
+                      <th scope="col">Name</th>
+                           <th scope="col">Description</th>
+                              </tr>
+                              </thead>
+
+                              <tbody>
+                                <tr>
+                                    <td class="tag">&lt;table&gt;</td>
+                                        <td>Table</td>
+                                            <td>The wrapper for all html elements.</td>
+                                              </tr>
+                                                
+                                                  <tr>
+                                                      <td class="tag">&lt;thead&gt;</td>
+                                                          <td>Table Head</td>
+                                                              <td>The set of rows defining the column headers in a table.</td>
+                                                                </tr>
+                                                                  
+                                                                    <tr>
+                                                                        <td class="tag">&lt;Tbody&gt;</td>
+                                                                            <td>Table Body</td>
+                                                                                <td>The set of rows containing actual table data.</td>
+                                                                                  </tr>
+                                                                                    
+                                                                                      <tr>
+                                                                                          <td class="tag">&lt;tr&gt;</td>
+                                                                                              <td>Table Row</td>
+                                                                                                  <td>The table row contianer.</td>
+                                                                                                    </tr>
+                                                                                                      
+
+                                                                                                        <tr>
+                                                                                                            <td class="tag">&lt;td&gt;</td>
+                                                                                                                <td>Table Data</td>
+                                                                                                                    <td>The table row contianer.</td>
+                                                                                                                      </tr>
+                                                                                                                        
+                                                                                                                          <tr>
+                                                                                                                              <td class="tag">&lt;tf&gt;</td>
+                                                                                                                                  <td>Table Foot</td>
+                                                                                                                                      <td>The set of rows defining the footer in a table.</td>
+                                                                                                                                        </tr>  
+                                                                                                                                        </table>
+
+
+
+
+                                                                                                                                         
+                                                                                                                                         <!-- Table Attributes    below-->
+
+
+                                                                                                                                         <div>
+                                                                                                                                            <!--<h3>HTML Table Reference</h3>-->
+                                                                                                                                               <h4>Table Attributes</h4>
+                                                                                                                                               <table>
+                                                                                                                                               <thead>
+                                                                                                                                                 <tr>
+                                                                                                                                                      <th scope="col">Attribute</th>
+                                                                                                                                                           <th scope="col">Name</th>
+                                                                                                                                                                <th scope="col">Description</th>
+                                                                                                                                                                  </tr>
+                                                                                                                                                                  </thead>
+
+                                                                                                                                                                  <tbody>
+
+                                                                                                                                                                   <tr>
+                                                                                                                                                                       <td class="attribute">colspan</td>
+                                                                                                                                                                           <td>Col Span</td>
+                                                                                                                                                                               <td>Defines how many columns a td element should span</td>
+                                                                                                                                                                                </tr>
+                                                                                                                                                                                 <tr>
+                                                                                                                                                                                     <td class="attribute">rowspan</td>
+                                                                                                                                                                                         <td>Row Span</td>
+                                                                                                                                                                                             <td>Defines how many rows a td element should span</td>
+                                                                                                                                                                                              </tr>
+                                                                                                                                                                                               
+
+                                                                                                                                                                                               </tbody>
+                                                                                                                                                                                               </table>
+                                                                                                                                                                                               </div>
+                                                                                                                                                                                                 
+                                                                                                                                                                                                 </body>
 </html>
