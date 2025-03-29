@@ -1,107 +1,124 @@
 <!DOCTYPE html>
 <head>
- <title> HTML Cheat Sheet</title>
- <link href="styles.css" rel="stylesheet">
-<style>
-
-
-body{ 
- background-color:orange;
- }
-
- h3{
-  text-align:center;
-   padding-top:15px;
-    color:;
-    }
-
-    h4{
-     text-align:center;
+   <title> HTML Cheat Sheet</title>
+   <link href="styles.css" rel="stylesheet">
+   <style>
+      body{ 
+      background-color:orange;
+      }
+      h3{
+      text-align:center;
       padding-top:15px;
-       color:purple;
-       }
-
-       div{
-        background-color:lightblue;
-         margin:50% auto;
-          height:70vh;
-          }
-           
-            table{
-              padding: 7px 7px;
-                /**/
-                  /*border:1px solid ;*/
-                    margin:20px auto;
-                     }
-
-                      tr{
-                        border:1px solid ;
-                         }
-
-                          td{
-                            /*colspan:2;*/
-                              border-bottom: 1px solid ;
-                                /*border-top: 1px solid gray;*/
-                                  text-align:;
-                                   }
-                                     
-                                      th{
-                                        border-bottom: 1px solid ;
-                                          /*border-top: 1px solid gray;*/
-                                            background-color:pink;
-                                              text-align: center;
-                                               }
-
-                                                .tag, .attribute{
-                                 font-family:monospace;                  background-color: snow;
-                                                    }
-
-                                                      td {
-                                                        border: 1px solid pink;
-                                                          }
-
-
-                                                          
-
-</style>
- </head>
-
- <body>
-  <div>
-    <h3>HTML Table Reference</h3>
-      <h4>Table Tags</h4>
-  <table>
-   <thead>
-     <tr>
-       <th scope="col">Tag</th>
-       <th scope="col">Name</th>
-       <th scope="col">Description</th>
-     </tr>
-   </thead>
-
-    <tbody>
-      <tr>
-       <td class="tag">&lt;table&gt;</td>
-       <td>Table</td>
-       <td>The wrapper for all html elements.</td>  
-      </tr>                
-      <tr>
-        <td class="tag">&lt;thead&gt;</td>
-        <td>Table Head</td>
-        <td>The set of rows defining the column headers in a table.</td>
-      </tr>
-                                                                  
-    <tr>
-       <td class="tag">&lt;Tbody&gt;</td>
-       <td>Table Body</td>
-       <td>The set of rows containing actual table data.</td>
-    </tr>
-                                                                                    
-   <tr>
-      <td class="tag">&lt;tr&gt;</td>
-      <td>Table Row</td>  
-      <td>The table row contianer.</td>
-   </tr>
- <tr>
-   <td class="tag">&lt;td&gt;</td>
-                                                                                                                                                                                       
+      color:;
+      }
+      h4{
+      text-align:center;
+      padding-top:15px;
+      color:purple;
+      }
+      div{
+      background-color:lightblue;
+      margin:5% auto;
+      height:600px;
+      }
+      table{
+      padding: 7px 7px;
+      /**/
+      /*border:1px solid ;*/
+      margin:20px auto;
+      }
+      tr{
+      border:1px solid ;
+      }
+      td{
+      /*colspan:2;*/
+      border-bottom: 1px solid ;
+      /*border-top: 1px solid gray;*/
+      text-align:;
+      }
+      th{
+      border-bottom: 1px solid ;
+      /*border-top: 1px solid gray;*/
+      background-color:pink;
+      text-align: center;
+      }
+      .tag, .attribute{
+      font-family:monospace;                  background-color: snow;
+      }
+      td {
+      border: 1px solid pink;
+      }
+   </style>
+</head>
+<body>
+   <div>
+   <h3>HTML Table Reference</h3>
+   <h4>Table Tags</h4>
+   <table>
+      <thead>
+         <tr>
+            <th scope="col">Tag</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td class="tag">&lt;table&gt;</td>
+            <td>Table</td>
+            <td>The wrapper for all html elements.</td>
+         </tr>
+         <tr>
+            <td class="tag">&lt;thead&gt;</td>
+            <td>Table Head</td>
+            <td>The set of rows defining the column headers in a table.</td>
+         </tr>
+         <tr>
+            <td class="tag">&lt;Tbody&gt;</td>
+            <td>Table Body</td>
+            <td>The set of rows containing actual table data.</td>
+         </tr>
+         <tr>
+            <td class="tag">&lt;tr&gt;</td>
+            <td>Table Row</td>
+            <td>The table row contianer.</td>
+         </tr>
+         <tr>
+            <td class="tag">&lt;td&gt;</td>
+            <td>Table Data</td>
+            <td>The table row contianer.</td>
+         </tr>
+         <tr>
+            <td class="tag">&lt;tf&gt;</td>
+            <td>Table Foot</td>
+            <td>The set of rows defining the footer in a table.</td>
+         </tr>
+   </table>
+   <!-- Table Attributes    below-->
+   <div>
+      <!--<h3>HTML Table Reference</h3>-->
+      <h4>Table Attributes</h4>
+      <table>
+         <thead>
+            <tr>
+               <th scope="col">Attribute</th>
+               <th scope="col">Name</th>
+               <th scope="col">Description</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td class="attribute">colspan</td>
+               <td>Col Span</td>
+               <td>Defines how many columns a td element should span</td>
+            </tr>
+            <tr>
+               <td class="attribute">rowspan</td>
+               <td>Row Span</td>
+               <td>Defines how many rows a td element should span</td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</body>
+</html>
