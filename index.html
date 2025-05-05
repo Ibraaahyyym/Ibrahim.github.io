@@ -1,4 +1,310 @@
 
+
+
+<!--   Quick Hire Kaduna code starts    ->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quick Hire Kaduna</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: gray;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    .container {
+      margin: 0px 5px;
+      background-color: whitesmoke;
+      border-radius: 15px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .header {
+      position: fixed;
+      top: 0px; /*the value for top was initially 10px*/
+      left: 5px;
+      right: 5px;
+      z-index: 1000;
+      background-color: white;
+      border: 1px solid gray;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .header img { /*this was originally.header img but changed to .header h2*/
+      width: 40px;
+      height: 40px;
+      margin-left: 10px;
+      border-radius: 10px;
+    }
+
+    .header button {
+      margin-top:-50px; /*this line brings the toggle button on the same horizontal level as the "Quick Hire" text.*/
+      float: right;
+      margin-right: 30px;
+      height: 40px;
+      width: 40px;
+      border-radius: 5px;
+      border: 1px solid black;
+      background-color: white;
+    }
+
+    #menu {
+      display: none;
+      margin-top: 10px; /* the margin-top value was originally 60px, i changed it to 10px for better layout*/
+      padding-left: 10px;
+    }
+
+    .xtra {
+      margin: 10px 0;
+    }
+
+    #menu button {
+      display: block;
+      width: 90vw;
+      margin: 10px auto;
+      color: white;
+      background-color: black;
+      border-radius: 10px;
+      padding: 10px;
+      border: none;
+    }
+
+    #menu button a {
+      text-decoration: none;
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    #dash1, #dash2, #dash3 {
+      color: black;
+    }
+
+    #dash2 {
+      position: relative;
+      top: -12px;
+    }
+
+    #dash3 {
+      position: relative;
+      top: -24px;
+    }
+
+    .main {
+      margin-top: 70px; /* This value was originally 150px, i changd it to --- for cleaner layout*/
+      text-align: center;
+    }
+
+    .main img {
+      width: 80vw;
+    }
+
+    .body-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin: 10px;
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 5px;
+    }
+
+    .box {
+      width: 300px;  /* original value --  400px*/
+      min-height: 200px;
+      border: 1px solid black;
+      border-radius: 10px;
+      margin: 5px;
+      padding: 10px;
+    }
+
+    .body-container img {
+      width: 300px;
+      height: 190px;
+      margin: 5px;
+      border-radius: 10px;
+    }
+
+    .body-container h4 {
+      text-transform: uppercase;
+      padding-left: 10px;
+    }
+   
+     p{
+       padding-left: 10px;
+     }
+
+     .box:hover{
+      /*background-color:black;*/
+      /*color:white;*/
+      border:5px solid gray;
+     }
+
+     .body-container img:hover{
+       border:5px solid gray;
+     }
+
+    /* WhatsApp Button */
+    .whatsapp-cta {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+
+    .whatsapp-cta:hover {
+      background-color: #1ebe5d;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <!--<img src="./cal_ai.webp" alt="Logo">-->
+      <h2 id="quick-hire">Quick Hire Kaduna</h2>
+      <button id="drop-down">
+        <span id="dash1"><strong>___</strong></span>
+        <span id="dash2"><strong>___</strong></span>
+        <span id="dash3"><strong>___</strong></span>
+      </button>
+      <div id="menu">
+        <p class="xtra"><a href="#quick-hire">Find Jobs near me</a></p>
+        <p class="xtra"><a href="#">Post Jobs</a></p>
+        <p class="xtra"><a href="#">Subscribe</a></p>
+        <button id="download"><a href="#">Download</a></button>
+      </div>
+    </div>
+
+    <div class="main">
+      <!--<img src="./cal_ai_phone.webp" alt="Hero Image">-->
+      <br>
+      <h3>Updated May 2nd, 2025</h3>
+    </div>
+
+    <div class="body-container">
+      <img src="./job-post1.jpg" alt="Job Post 1">
+      <img src="./job-post2.jpg" alt="Job Post 2">
+      <img src="./job-post3.jpg" alt="Job Post 3">
+      <img src="./job-post4.jpg" alt="Job Post 4">
+      <img src="./job-post5.jpg" alt="Job Post 5">
+      <img src="./job-post6.jpg" alt="Job Post 6">
+      
+      <div class="box">
+        <h4><a href="">Anty Christiana Academy</a></h4>
+        <h4><a href="">Secretary | Teacher | Nanny</a></h4>
+        <p>No. 4 Abdulkadir Street Barnawa Kaduna</p>
+        <p>08023098780</p><br>
+        <p><strong>Open</strong></p>
+      </div>
+
+      <div class="box">
+        <h4><a href="https://docs.google.com/document/d/1omlePWI6O9mrQuF3sWvAEuvdpAbOBblxPNoCNH-VN44/edit?tab=t.0">Kaleidoscope</a></h4>
+        <p>(Remote in Europe)</p><br>
+        <p><strong>Open</strong></p>
+      </div>
+
+      <div class="box">
+        <h4><a href="https://witness.bamboohr.com/careers/62">Witness</a></h4>
+        <h4><a href="">Program Manager, Middle East and North Africa</a></h4>
+        <p>Brussels (Belgium)</p><br>
+        <p><strong>Open</strong></p>
+      </div>
+
+      <div class="box">
+        <h4><a href="">Giwa Hospitals Ltd</a></h4>
+        <h4><a href="">Medical doctors (registered by the Nigerian Medical Council and current license to practice)</a></h4>
+        <p>No. 1 Ali Akilu Road Kaduna</p>
+        <p>08076877543 | 08055703669</p><br>
+        <p><strong>Open</strong></p>
+      </div>
+       
+      <div class="box">
+        <h4><a href="">Passion Trust Cosmetics</a></h4>
+        <h4><a href="">Computer Operator (Male or Female) | Inventory (Male) | Sales Boys / Girls</a></h4>
+        <p>Independence Way Opposite KAD ICT (Submit your CV at this address)</p>
+        <p>08155283555 | 08142887340</p><br>
+      </div>
+      
+      <div class="box">
+       <h4><a href="">G20 Manga Plaza</a></h4>
+        <h4><a href="">Sales Girl</a></h4>
+        <p>G20 Manga Plaza Kasuwa</p>
+        <p>08155283555 | 08142887340</p><br>
+      </div>
+      <div id="" class="box" id="<!--box7-->">
+        <h4><a href="">Duniya Model School</a></h4>
+        <h4><a href="">Teachers needed: English, Mathematics / Physics, Business Studies / Civic, Computer Studies, Biology / Chemistry</a></h4>
+        <p></p>
+        <p> 08061618071</p><br>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp CTA -->
+  <!--<a href="https://wa.me/2347012132102" target="_blank" class="whatsapp-cta">-->
+  <a href="https://wa.me/qr/NNVG4CWG2Z47E1" target="_blank" class="whatsapp-cta">
+    Chat on WhatsApp
+  </a>
+
+  <script>
+    let btn = document.getElementById('drop-down');
+    let menuBtn = document.getElementById('menu');
+    let dash1 = document.getElementById('dash1');
+    let dash2 = document.getElementById('dash2');
+    let dash3 = document.getElementById('dash3');
+    let isOpen = false;
+
+    function toggleBtn() {
+      if (!isOpen) {
+        menuBtn.style.display = 'block';
+        btn.style.border = '2px solid';
+        dash1.innerHTML = '';
+        dash3.innerHTML = '';
+        dash2.innerHTML = 'X';
+        dash2.style.fontWeight = 'bold';
+        dash2.style.fontSize = '20px';
+        dash2.style.top = '2px';
+        dash2.style.display = 'block';
+        isOpen = true;
+      } else {
+        menuBtn.style.display = 'none';
+        dash1.innerHTML = '<strong>___</strong>';
+        dash2.innerHTML = '<strong>___</strong>';
+        dash3.innerHTML = '<strong>___</strong>';
+        dash2.style.fontWeight = 'normal';
+        dash2.style.fontSize = '';
+        dash2.style.top = '-12px';
+        isOpen = false;
+      }
+    }
+
+    btn.addEventListener('click', toggleBtn);
+  </script>
+</body>
+</html>
+
+
+
+
+<!-- Quick Hire Kaduna code ending -->
+
+
+
 <!--
 <!DOCTYPE html>
 <html>
@@ -198,7 +504,7 @@ padding-top:20px; /** this line stressed m**/
 
 
 
-
+<!--
 <!DOCTYPE html>
 <head>
    <title> HTML Cheat Sheet</title>
@@ -295,12 +601,13 @@ padding-top:20px; /** this line stressed m**/
             <td>The set of rows defining the footer in a table.</td>
          </tr>
    </table>
+    -->
    <!-- Table Attributes    below-->
    
       <!--<h3>HTML Table Reference</h3>-->
 
 
-
+<!--
       <h4>Table Attributes</h4>
       <table>
          <thead>
@@ -326,5 +633,4 @@ padding-top:20px; /** this line stressed m**/
    </div>
 </body>
 
-</html>
--
+</html> -->
