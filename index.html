@@ -1,295 +1,313 @@
-<!DOCTYPE html> 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Quick Hire Kaduna</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    /* ===== Base Styling ===== */
+    :root {
+      --bg-gray: #f3f3f3;
+      --brand-dark: #222;
+      --brand-accent: #25D366;
+      --text-color: #222;
+      --card-radius: 12px;
+      --transition: 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      background-color: gray;
       margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-    }
-
-    .container {
-      margin: 0px 5px;
-      background-color: whitesmoke;
-      border-radius: 15px;
-      padding-top: 20px;
-      padding-bottom: 20px;
-    }
-
-    .header {
-      position: fixed;
-      top: 0px; /*the value for top was initially 10px*/
-      left: 5px;
-      right: 5px;
-      z-index: 1000;
-      background-color: white;
-      border: 1px solid gray;
-      border-radius: 10px;
-      padding: 10px;
-    }
-
-    .header img { /*this was originally.header img but changed to .header h2*/
-      width: 40px;
-      height: 40px;
-      margin-left: 10px;
-      border-radius: 10px;
-    }
-
-    .header button {
-      margin-top:-50px; /*this line brings the toggle button on the same horizontal level as the "Quick Hire" text.*/
-      float: right;
-      margin-right: 30px;
-      height: 40px;
-      width: 40px;
-      border-radius: 5px;
-      border: 1px solid black;
-      background-color: white;
-    }
-
-    #menu {
-      display: none;
-      margin-top: 10px; /* the margin-top value was originally 60px, i changed it to 10px for better layout*/
-      padding-left: 10px;
-    }
-
-    .xtra {
-      margin: 10px 0;
-    }
-
-    #menu button {
-      display: block;
-      width: 90vw;
-      margin: 10px auto;
-      color: white;
-      background-color: black;
-      border-radius: 10px;
-      padding: 10px;
-      border: none;
-    }
-
-    #menu button a {
-      text-decoration: none;
-      color: white;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #e0e0e0;
+      color: var(--text-color);
     }
 
     a {
       text-decoration: none;
-      color: black;
+      color: inherit;
     }
 
-    #dash1, #dash2, #dash3 {
-      color: black;
-    }
-
-    #dash2 {
-      position: relative;
-      top: -12px;
-    }
-
-    #dash3 {
-      position: relative;
-      top: -24px;
-    }
-
-    .main {
-      margin-top: 70px; /* This value was originally 150px, i changd it to --- for cleaner layout*/
-      text-align: center;
-    }
-
-    .main img {
-      width: 80vw;
-    }
-
-    .body-container {
+    /* ===== Header ===== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: white;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 20px;
       display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      margin: 10px;
-      border: 1px solid black;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .header h2 {
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--brand-dark);
+    }
+
+    .header button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      position: relative;
+    }
+
+    .bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: var(--brand-dark);
+      margin: 5px auto;
       border-radius: 5px;
-      padding: 5px;
+      transition: var(--transition);
+    }
+
+    .header button.open .bar:nth-child(1) {
+      transform: rotate(45deg) translateY(8px);
+    }
+
+    .header button.open .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .header button.open .bar:nth-child(3) {
+      transform: rotate(-45deg) translateY(-8px);
+    }
+
+    /* ===== Menu ===== */
+    #menu {
+      display: none;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      width: 200px;
+      padding: 10px;
+      animation: fadeIn var(--transition);
+    }
+
+    #menu.show {
+      display: block;
+    }
+
+    #menu a,
+    #menu button {
+      display: block;
+      margin: 10px 0;
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      color: white;
+      background-color: var(--brand-dark);
+      border: none;
+      transition: var(--transition);
+    }
+
+    #menu a:hover,
+    #menu button:hover {
+      background-color: #444;
+    }
+
+    /* ===== Main Section ===== */
+    .main {
+      text-align: center;
+      padding: 80px 15px 20px;
+    }
+
+    .main h3 {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* ===== Body Container ===== */
+    .body-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+      padding: 15px;
     }
 
     .box {
-      width: 300px;  /* original value --  400px*/
-      min-height: 200px;
-      border: 1px solid black;
-      border-radius: 10px;
-      margin: 5px;
-      padding: 10px;
+      background: var(--bg-gray);
+      border-radius: var(--card-radius);
+      padding: 15px;
+      border: 1px solid #ccc;
+      transition: var(--transition);
+    }
+
+    .box:hover {
+      border: 2px solid #999;
+      transform: translateY(-3px);
+    }
+
+    .box h4 {
+      margin: 5px 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--brand-dark);
+    }
+
+    .box p {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 3px 0;
     }
 
     .body-container img {
-      width: 300px;
-      height: 190px;
-      margin: 5px;
-      border-radius: 10px;
+      width: 100%;
+      height: auto;
+      border-radius: var(--card-radius);
+      transition: var(--transition);
     }
 
-    .body-container h4 {
-      text-transform: uppercase;
-      padding-left: 10px;
+    .body-container img:hover {
+      transform: scale(1.02);
     }
-   
-     p{
-       padding-left: 10px;
-     }
 
-     .box:hover{
-      /*background-color:black;*/
-      /*color:white;*/
-      border:5px solid gray;
-     }
-
-     .body-container img:hover{
-       border:5px solid gray;
-     }
-
-    /* WhatsApp Button */
+    /* ===== WhatsApp CTA ===== */
     .whatsapp-cta {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #25D366;
+      background-color: var(--brand-accent);
       color: white;
-      padding: 12px 20px;
+      padding: 12px 18px;
       border-radius: 50px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 0.9rem;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      z-index: 999;
+      transition: var(--transition);
+      z-index: 1000;
     }
 
     .whatsapp-cta:hover {
       background-color: #1ebe5d;
     }
+
+    /* ===== Animations ===== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Responsive ===== */
+    @media (min-width: 768px) {
+      .header h2 {
+        font-size: 1.6rem;
+      }
+
+      .main h3 {
+        font-size: 1.2rem;
+      }
+
+      .body-container {
+        padding: 30px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <!--<img src="./cal_ai.webp" alt="Logo">-->
-      <h2 id="quick-hire">Quick Hire Kaduna</h2>
-      <button id="drop-down">
-        <span id="dash1"><strong>___</strong></span>
-        <span id="dash2"><strong>___</strong></span>
-        <span id="dash3"><strong>___</strong></span>
-      </button>
-      <div id="menu">
-        <p class="xtra"><a href="#quick-hire">Find Jobs near me</a></p>
-        <p class="xtra"><a href="#">Post Jobs</a></p>
-        <p class="xtra"><a href="#">Subscribe</a></p>
-        <button id="download"><a href="#">Download</a></button>
-      </div>
+
+  <!-- Header -->
+  <div class="header">
+    <h2>Quick Hire Kaduna</h2>
+    <button id="menu-btn">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <div id="menu">
+      <a href="#quick-hire">Find Jobs near me</a>
+      <a href="#">Post Jobs</a>
+      <a href="#">Subscribe</a>
+      <button>Download</button>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <h3>Updated May 2nd, 2025</h3>
+  </div>
+
+  <!-- Job Grid -->
+  <div class="body-container">
+    <div class="box">
+      <h4>Anty Christiana Academy</h4>
+      <h4>Secretary | Teacher | Nanny</h4>
+      <p>No. 4 Abdulkadir Street Barnawa Kaduna</p>
+      <p>08023098780</p>
+      <p><strong>Open</strong></p>
     </div>
 
-    <div class="main">
-      <!--<img src="./cal_ai_phone.webp" alt="Hero Image">-->
-      <br>
-      <h3>Updated May 2nd, 2025</h3>
+    <div class="box">
+      <h4><a href="https://docs.google.com/document/d/1omlePWI6O9mrQuF3sWvAEuvdpAbOBblxPNoCNH-VN44/edit">Kaleidoscope</a></h4>
+      <p>(Remote in Europe)</p>
+      <p><strong>Open</strong></p>
     </div>
 
-    <div class="body-container">
-      <img src="./job-post1.jpg" alt="Job Post 1">
-      <img src="./job-post2.jpg" alt="Job Post 2">
-      <img src="./job-post3.jpg" alt="Job Post 3">
-      <img src="./job-post4.jpg" alt="Job Post 4">
-      <img src="./job-post5.jpg" alt="Job Post 5">
-      <img src="./job-post6.jpg" alt="Job Post 6">
-      
-      <div class="box">
-        <h4><a href="">Anty Christiana Academy</a></h4>
-        <h4><a href="">Secretary | Teacher | Nanny</a></h4>
-        <p>No. 4 Abdulkadir Street Barnawa Kaduna</p>
-        <p>08023098780</p><br>
-        <p><strong>Open</strong></p>
-      </div>
+    <div class="box">
+      <h4><a href="https://witness.bamboohr.com/careers/62">Witness</a></h4>
+      <h4>Program Manager, MENA</h4>
+      <p>Brussels (Belgium)</p>
+      <p><strong>Open</strong></p>
+    </div>
 
-      <div class="box">
-        <h4><a href="https://docs.google.com/document/d/1omlePWI6O9mrQuF3sWvAEuvdpAbOBblxPNoCNH-VN44/edit?tab=t.0">Kaleidoscope</a></h4>
-        <p>(Remote in Europe)</p><br>
-        <p><strong>Open</strong></p>
-      </div>
+    <div class="box">
+      <h4>Giwa Hospitals Ltd</h4>
+      <h4>Medical Doctors (Registered)</h4>
+      <p>No. 1 Ali Akilu Road Kaduna</p>
+      <p>08076877543 | 08055703669</p>
+      <p><strong>Open</strong></p>
+    </div>
 
-      <div class="box">
-        <h4><a href="https://witness.bamboohr.com/careers/62">Witness</a></h4>
-        <h4><a href="">Program Manager, Middle East and North Africa</a></h4>
-        <p>Brussels (Belgium)</p><br>
-        <p><strong>Open</strong></p>
-      </div>
+    <div class="box">
+      <h4>Passion Trust Cosmetics</h4>
+      <h4>Computer Operator | Inventory | Sales</h4>
+      <p>Independence Way Opp. KAD ICT</p>
+      <p>08155283555 | 08142887340</p>
+    </div>
 
-      <div class="box">
-        <h4><a href="">Giwa Hospitals Ltd</a></h4>
-        <h4><a href="">Medical doctors (registered by the Nigerian Medical Council and current license to practice)</a></h4>
-        <p>No. 1 Ali Akilu Road Kaduna</p>
-        <p>08076877543 | 08055703669</p><br>
-        <p><strong>Open</strong></p>
-      </div>
-       
-      <div class="box">
-        <h4><a href="">Passion Trust Cosmetics</a></h4>
-        <h4><a href="">Computer Operator (Male or Female) | Inventory (Male) | Sales Boys / Girls</a></h4>
-        <p>Independence Way Opposite KAD ICT (Submit your CV at this address)</p>
-        <p>08155283555 | 08142887340</p><br>
-      </div>
-      
-      <div class="box">
-       <h4><a href="">G20 Manga Plaza</a></h4>
-        <h4><a href="">Sales Girl</a></h4>
-        <p>G20 Manga Plaza Kasuwa</p>
-        <p>08155283555 | 08142887340</p><br>
-      </div>
-      <div id="" class="box" id="<!--box7-->">
-        <h4><a href="">Duniya Model School</a></h4>
-        <h4><a href="">Teachers needed: English, Mathematics / Physics, Business Studies / Civic, Computer Studies, Biology / Chemistry</a></h4>
-        <p></p>
-        <p> 08061618071</p><br>
-      </div>
+    <div class="box">
+      <h4>G20 Manga Plaza</h4>
+      <h4>Sales Girl</h4>
+      <p>G20 Manga Plaza Kasuwa</p>
+      <p>08155283555 | 08142887340</p>
+    </div>
+
+    <div class="box">
+      <h4>Duniya Model School</h4>
+      <h4>Teachers needed: English, Mathematics, Physics, Business, Computer, Biology</h4>
+      <p>08061618071</p>
     </div>
   </div>
 
   <!-- WhatsApp CTA -->
-  <!--<a href="https://wa.me/2347012132102" target="_blank" class="whatsapp-cta">-->
   <a href="https://wa.me/qr/NNVG4CWG2Z47E1" target="_blank" class="whatsapp-cta">
     Chat on WhatsApp
   </a>
 
   <script>
-    let btn = document.getElementById('drop-down');
-    let menuBtn = document.getElementById('menu');
-    let dash1 = document.getElementById('dash1');
-    let dash2 = document.getElementById('dash2');
-    let dash3 = document.getElementById('dash3');
-    let isOpen = false;
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
 
-    function toggleBtn() {
-      if (!isOpen) {
-        menuBtn.style.display = 'block';
-        btn.style.border = '2px solid';
-        dash1.innerHTML = '';
-        dash3.innerHTML = '';
-        dash2.innerHTML = 'X';
-        dash2.style.fontWeight = 'bold';
-        dash2.style.fontSize = '20px';
-        dash2.style.top = '2px';
-        dash2.style.display = 'block';
-        isOpen = true;
-      } else {
-        menuBtn.style.display = 'none';
-        dash1.innerHTML = '<strong>___</strong>';
-        dash2.innerHTML = '<strong>___</strong>';
-        dash3.innerHTML = '<strong>___</strong>';
-        dash2.style.fontWeight = 'normal';
-        dash2.style.fontSize = '';
-        dash2.style.top = '-12px';
-        isOpen = false;
-      }
-    }
-
-    btn.addEventListener('click', toggleBtn);
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('open');
+      menu.classList.toggle('show');
+    });
   </script>
+
 </body>
 </html>
