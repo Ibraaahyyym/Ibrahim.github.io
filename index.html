@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quick Hire Kaduna</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background-color: gray;
+      background-color: #f2f2f2;
       margin: 0;
       padding: 0;
-      font-family: sans-serif;
+      font-family: "Segoe UI", sans-serif;
+      color: #333;
     }
 
     .container {
       margin: 0 5px;
       background-color: whitesmoke;
       border-radius: 15px;
-      padding-top: 20px;
-      padding-bottom: 20px;
+      padding-bottom: 30px;
     }
 
+    /* HEADER */
     .header {
       position: fixed;
       top: 0;
@@ -26,120 +28,133 @@
       right: 5px;
       z-index: 1000;
       background-color: white;
-      border: 1px solid gray;
+      border: 1px solid #ddd;
       border-radius: 10px;
-      padding: 10px;
+      padding: 10px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .header h2 {
       margin: 0;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      color: #111;
     }
 
-    .header button {
-      height: 40px;
-      width: 40px;
-      border-radius: 5px;
-      border: 1px solid black;
-      background-color: white;
+    /* BURGER MENU BUTTON */
+    .burger {
+      width: 35px;
+      height: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      z-index: 1100;
     }
 
-    .header button span {
-      display: block;
-      height: 3px;
-      background-color: black;
-      margin: 6px 0;
-      transition: all 0.3s ease;
+    .burger span {
+      height: 4px;
+      background-color: #000;
+      border-radius: 2px;
+      transition: 0.4s;
     }
 
-    /* Full-screen mobile menu overlay */
-    #menu {
-      display: none;
+    .burger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .burger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .burger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* FULL-SCREEN MENU */
+    .menu {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100vh;
-      background-color: rgba(0, 0, 0, 0.95);
-      z-index: 999;
-      text-align: center;
-      padding-top: 80px;
-      box-sizing: border-box;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(5px);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1050;
+      animation: fadeIn 0.3s ease-in-out;
     }
 
-    #menu.active {
-      display: block;
+    .menu.active {
+      display: flex;
     }
 
-    #menu a, #menu button {
-      display: block;
-      margin: 20px auto;
+    .menu a, .menu button {
+      background: #000;
+      color: white;
+      text-decoration: none;
+      border: none;
+      padding: 15px 30px;
+      margin: 15px 0;
+      border-radius: 10px;
       width: 80%;
       max-width: 300px;
-      background-color: white;
-      color: black;
-      text-decoration: none;
-      border-radius: 10px;
-      padding: 15px;
       font-size: 1.1rem;
-      border: none;
-      transition: 0.3s;
+      transition: background 0.3s;
     }
 
-    #menu a:hover, #menu button:hover {
-      background-color: gray;
-      color: white;
+    .menu a:hover, .menu button:hover {
+      background: gray;
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* MAIN CONTENT */
     .main {
-      margin-top: 80px;
+      margin-top: 90px;
       text-align: center;
-    }
-
-    .main img {
-      width: 80vw;
     }
 
     .body-container {
       display: flex;
-      justify-content: space-around;
       flex-wrap: wrap;
-      margin: 10px;
-      border: 1px solid black;
-      border-radius: 5px;
-      padding: 5px;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
     }
 
     .box {
+      background-color: #fff;
       width: 300px;
-      min-height: 200px;
-      border: 1px solid black;
       border-radius: 10px;
-      margin: 5px;
-      padding: 10px;
-      background-color: white;
+      border: 1px solid #ccc;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
     }
 
-    .body-container img {
-      width: 300px;
-      height: 190px;
-      margin: 5px;
-      border-radius: 10px;
+    .box:hover {
+      transform: translateY(-3px);
+      border-color: gray;
     }
 
-    .body-container h4 {
+    .box h4 {
+      margin: 5px 0;
       text-transform: uppercase;
-      padding-left: 10px;
     }
 
-    p {
-      padding-left: 10px;
-    }
-
+    /* WhatsApp CTA */
     .whatsapp-cta {
       position: fixed;
       bottom: 20px;
@@ -151,53 +166,63 @@
       text-decoration: none;
       font-weight: bold;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      z-index: 1001;
+      z-index: 1200;
     }
 
     .whatsapp-cta:hover {
       background-color: #1ebe5d;
     }
 
+    /* DESKTOP MENU */
     @media (min-width: 768px) {
-      #menu {
-        display: flex !important;
-        position: static;
-        background-color: transparent;
-        height: auto;
-        flex-direction: row;
-        justify-content: flex-end;
-        padding: 0;
-      }
-
-      #menu a, #menu button {
-        background: none;
-        color: black;
-        padding: 10px;
-        width: auto;
-        margin: 0 10px;
-      }
-
-      .header button {
+      .burger {
         display: none;
+      }
+
+      .menu {
+        position: static;
+        height: auto;
+        display: flex !important;
+        flex-direction: row;
+        background: none;
+        backdrop-filter: none;
+        justify-content: flex-end;
+        margin-left: auto;
+        gap: 15px;
+      }
+
+      .menu a, .menu button {
+        background: none;
+        color: #000;
+        font-size: 1rem;
+        padding: 10px 15px;
+        width: auto;
+        margin: 0;
+      }
+
+      .menu a:hover, .menu button:hover {
+        background: #000;
+        color: white;
       }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="header">
-      <h2 id="quick-hire">Quick Hire Kaduna</h2>
-      <button id="burger">
+      <h2>Quick Hire Kaduna</h2>
+      <button class="burger" id="burger">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      <div id="menu">
+      <nav class="menu" id="menu">
         <a href="#quick-hire">Find Jobs near me</a>
         <a href="#">Post Jobs</a>
         <a href="#">Subscribe</a>
-        <button id="download"><a href="#" style="color:black; text-decoration:none;">Download</a></button>
-      </div>
+        <button><a href="#" style="text-decoration:none;color:white;">Download</a></button>
+      </nav>
     </div>
 
     <div class="main">
@@ -205,37 +230,30 @@
     </div>
 
     <div class="body-container">
-      <img src="./job-post1.jpg" alt="Job Post 1">
-      <img src="./job-post2.jpg" alt="Job Post 2">
-      <img src="./job-post3.jpg" alt="Job Post 3">
-      <img src="./job-post4.jpg" alt="Job Post 4">
-      <img src="./job-post5.jpg" alt="Job Post 5">
-      <img src="./job-post6.jpg" alt="Job Post 6">
-      
       <div class="box">
-        <h4><a href="">Anty Christiana Academy</a></h4>
-        <h4><a href="">Secretary | Teacher | Nanny</a></h4>
+        <h4>Anty Christiana Academy</h4>
+        <p>Secretary | Teacher | Nanny</p>
         <p>No. 4 Abdulkadir Street Barnawa Kaduna</p>
-        <p>08023098780</p><br>
-        <p><strong>Open</strong></p>
+        <p>08023098780</p>
+        <strong>Open</strong>
       </div>
       <div class="box">
-        <h4><a href="https://docs.google.com/document/d/1omlePWI6O9mrQuF3sWvAEuvdpAbOBblxPNoCNH-VN44/edit?tab=t.0">Kaleidoscope</a></h4>
-        <p>(Remote in Europe)</p><br>
-        <p><strong>Open</strong></p>
+        <h4>Kaleidoscope</h4>
+        <p>(Remote in Europe)</p>
+        <strong>Open</strong>
       </div>
       <div class="box">
-        <h4><a href="https://witness.bamboohr.com/careers/62">Witness</a></h4>
-        <h4><a href="">Program Manager, Middle East and North Africa</a></h4>
-        <p>Brussels (Belgium)</p><br>
-        <p><strong>Open</strong></p>
+        <h4>Witness</h4>
+        <p>Program Manager, Middle East and North Africa</p>
+        <p>Brussels (Belgium)</p>
+        <strong>Open</strong>
       </div>
       <div class="box">
-        <h4><a href="">Giwa Hospitals Ltd</a></h4>
-        <h4><a href="">Medical doctors</a></h4>
+        <h4>Giwa Hospitals Ltd</h4>
+        <p>Medical Doctors (Registered & Licensed)</p>
         <p>No. 1 Ali Akilu Road Kaduna</p>
-        <p>08076877543 | 08055703669</p><br>
-        <p><strong>Open</strong></p>
+        <p>08076877543 | 08055703669</p>
+        <strong>Open</strong>
       </div>
     </div>
   </div>
@@ -247,25 +265,20 @@
   <script>
     const burger = document.getElementById('burger');
     const menu = document.getElementById('menu');
-    const spans = burger.querySelectorAll('span');
+    const links = menu.querySelectorAll('a, button');
 
     burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
       menu.classList.toggle('active');
-      spans[0].classList.toggle('rotate1');
-      spans[1].classList.toggle('hide');
-      spans[2].classList.toggle('rotate2');
+    });
 
-      // Animate burger into an X
-      if (menu.classList.contains('active')) {
-        spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
-      } else {
-        spans[0].style.transform = '';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = '';
-      }
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('active');
+        burger.classList.remove('active');
+      });
     });
   </script>
 </body>
 </html>
+
